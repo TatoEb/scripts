@@ -1,1 +1,1 @@
-# my scripts for IT Army
+# my scripts for IT Army, etc.
