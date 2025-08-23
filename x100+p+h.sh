@@ -68,6 +68,7 @@ rm -f ovpn.zip
 cd ~/x100-for-docker/put-your-ovpn-files-here/P-do
 mcedit credentials.txt
 cd ~/x100-for-docker/put-your-ovpn-files-here/H.me
+sed -i 's/max_connections=10/max_connections=2/g' vpn-provider-config.txt
 mcedit credentials.txt
 
 # === Запуск атаки ===
