@@ -15,6 +15,14 @@ apt update -y
 rm -rf x100-for-docker
 apt install -y git wget screen mc vnstat tmux sed unzip
 
+# === VNSTAT: права та старт (без systemd) ===
+mkdir -p /var/lib/vnstat
+touch /var/lib/vnstat/vnstat.db
+chmod -R 777 /var/lib/vnstat
+
+service vnstat start
+grep -qxF "/usr/sbin/vnstatd --daemon" ~/.bashrc || echo "/usr/sbin/vnstatd --daemon" >> ~/.bashrc
+
 # === Встановлення Docker без конфліктів ===
 if dpkg -l | grep -q moby; then
     echo "⚠️ Виявлено moby-пакети. Видаляю..."
