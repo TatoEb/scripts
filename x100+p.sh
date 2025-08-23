@@ -76,11 +76,11 @@ rm -f ovpn.zip
 cd ~/x100-for-docker/put-your-ovpn-files-here/P-do
 mcedit credentials.txt
 
-# === Фінальні кроки ===
+# === Фінальні кроки + запуск атаки ===
 cd ~/x100-for-docker/put-your-ovpn-files-here
 rm -rf H.me
 clear
-./X100.sh
+cd && ./X100.sh
 
 # === Очищення історії ===
 history -c
