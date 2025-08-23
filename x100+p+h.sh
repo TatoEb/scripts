@@ -13,11 +13,15 @@ fi
 cd ~
 apt update -y
 rm -rf x100-for-docker
-apt install -y git wget screen mc vnstat tmux sed unzip docker.io
+apt install -y git wget screen mc vnstat tmux sed unzip
 
-# Запускаємо vnstat
+# === VNSTAT: права та старт (без systemd) ===
+mkdir -p /var/lib/vnstat
+touch /var/lib/vnstat/vnstat.db
+chmod -R 777 /var/lib/vnstat
+
 service vnstat start
-grep -q "vnstatd --daemon" ~/.bashrc || echo '/usr/sbin/vnstatd --daemon' >> ~/.bashrc
+grep -qxF "/usr/sbin/vnstatd --daemon" ~/.bashrc || echo "/usr/sbin/vnstatd --daemon" >> ~/.bashrc
 
 # === Клонування репозиторію ===
 git clone https://github.com/TatoEb/adss-x100.git
