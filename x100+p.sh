@@ -34,10 +34,6 @@ if ! apt install -y docker.io; then
     apt install -y docker-ce docker-ce-cli containerd.io
 fi
 
-# === Запуск vnstat ===
-service vnstat start
-grep -q "vnstatd --daemon" ~/.bashrc || echo '/usr/sbin/vnstatd --daemon' >> ~/.bashrc
-
 # === Клонування репозиторію ===
 git clone https://github.com/TatoEb/adss-x100.git
 cd adss-x100
