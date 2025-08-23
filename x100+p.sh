@@ -13,9 +13,20 @@ fi
 cd ~
 apt update -y
 rm -rf x100-for-docker
-apt install -y git wget screen mc vnstat tmux sed unzip docker.io
+apt install -y git wget screen mc vnstat tmux sed unzip
 
-# Запускаємо vnstat
+# === Встановлення Docker без конфліктів ===
+if dpkg -l | grep -q moby; then
+    echo "⚠️ Виявлено moby-пакети. Видаляю..."
+    apt remove -y moby-engine moby-containerd moby-cli || true
+fi
+
+if ! apt install -y docker.io; then
+    echo "⚠️ docker.io не встановився, пробую офіційні пакети Docker CE..."
+    apt install -y docker-ce docker-ce-cli containerd.io
+fi
+
+# === Запуск vnstat ===
 service vnstat start
 grep -q "vnstatd --daemon" ~/.bashrc || echo '/usr/sbin/vnstatd --daemon' >> ~/.bashrc
 
@@ -36,6 +47,7 @@ bash adss-x100.bash
 cd ~/x100-for-docker/put-your-ovpn-files-here/
 
 sed -i -E "
+  s/\r$//;  # фікс Windows CRLF
   s/initialDistressScale=50/initialDistressScale=950/;
   s/delayAfterSessionMinDuration=15/delayAfterSessionMinDuration=0/;
   s/delayAfterSessionMaxDuration=45/delayAfterSessionMaxDuration=2/;
