@@ -66,8 +66,9 @@ mcedit credentials.txt
 cd ~/x100-for-docker/put-your-ovpn-files-here/H.me
 mcedit credentials.txt
 
-# === Фінальні кроки ===
+# === Запуск атаки ===
 clear
+cd
 ./X100.sh
 
 # === Очищення історії ===
