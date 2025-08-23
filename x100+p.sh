@@ -80,7 +80,8 @@ mcedit credentials.txt
 cd ~/x100-for-docker/put-your-ovpn-files-here
 rm -rf H.me
 clear
-cd && ./X100.sh
+cd
+./X100.sh
 
 # === Очищення історії ===
 history -c
