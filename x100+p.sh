@@ -39,7 +39,7 @@ git clone https://github.com/TatoEb/adss-x100.git
 cd adss-x100
 chmod +x *.sh
 
-# Копіюємо файли у $HOME
+# Копіюємо файли з подальшим очищенням
 cd ~
 cp ~/adss-x100/*.* ~
 rm -rf x100-for-docker adss-x100
