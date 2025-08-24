@@ -23,6 +23,17 @@ chmod -R 777 /var/lib/vnstat
 service vnstat start
 grep -qxF "/usr/sbin/vnstatd --daemon" ~/.bashrc || echo "/usr/sbin/vnstatd --daemon" >> ~/.bashrc
 
+# === Встановлення Docker без конфліктів ===
+if dpkg -l | grep -q moby; then
+    echo "⚠️ Виявлено moby-пакети. Видаляю..."
+    apt remove -y moby-engine moby-containerd moby-cli || true
+fi
+
+if ! apt install -y docker.io; then
+    echo "⚠️ docker.io не встановився, пробую офіційні пакети Docker CE..."
+    apt install -y docker-ce docker-ce-cli containerd.io
+fi
+
 # === Клонування репозиторію ===
 git clone https://github.com/TatoEb/adss-x100.git
 cd adss-x100
