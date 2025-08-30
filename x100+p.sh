@@ -52,7 +52,8 @@ cd ~/x100-for-docker/put-your-ovpn-files-here/
 
 sed -i -E "
   s/\r$//;  # фікс Windows CRLF
-  s/initialDistressScale=50/initialDistressScale=950/;
+  s/initialDistressScale=50/initialDistressScale=1000/;
+  s/maxDistressScale=10240/maxDistressScale=100000/;
   s/delayAfterSessionMinDuration=15/delayAfterSessionMinDuration=0/;
   s/delayAfterSessionMaxDuration=45/delayAfterSessionMaxDuration=2/;
   s/itArmyUserId=77777777/itArmyUserId=${USER_ID}/;
