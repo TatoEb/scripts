@@ -58,7 +58,7 @@ sed -i -E "
   s/delayAfterSessionMaxDuration=45/delayAfterSessionMaxDuration=2/;
   s/itArmyUserId=77777777/itArmyUserId=${USER_ID}/;
   s/fixedVpnConnectionsQuantity=0/fixedVpnConnectionsQuantity=7/;
-  s/networkUsageGoal=80%/networkUsageGoal=725/;
+  s/networkUsageGoal=80%/networkUsageGoal=777/;
   s/oneSessionMinDuration=600/oneSessionMinDuration=400/;
   s/oneSessionMaxDuration=900/oneSessionMaxDuration=700/;
 " x100-config.txt
