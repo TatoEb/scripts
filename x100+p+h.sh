@@ -11,9 +11,7 @@ fi
 
 # === Підготовка середовища ===
 cd ~
-cd /etc/apt/sources.list.d
-rm yarn.list
-cd ~
+rm -rf /etc/apt/sources.list.d/yarn.list
 apt update -y
 rm -rf x100-for-docker
 apt install -y git wget screen mc vnstat tmux sed unzip
