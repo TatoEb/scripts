@@ -1,1 +1,1 @@
-# my scripts for IT Army, etc.
+# my scripts for CyberCorpus, etc.
