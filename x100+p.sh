@@ -57,7 +57,7 @@ sed -i -E "
   s/maxDistressScale=10240/maxDistressScale=100000/;
   s/delayAfterSessionMinDuration=15/delayAfterSessionMinDuration=0/;
   s/delayAfterSessionMaxDuration=45/delayAfterSessionMaxDuration=2/;
-  s/statisticsUserId=77777777/statisticsUserId=${USER_ID}/;
+  s/statisticsUserId=0/statisticsUserId=${USER_ID}/;
   s/fixedVpnConnectionsQuantity=0/fixedVpnConnectionsQuantity=7/;
   s/networkUsageGoal=80%/networkUsageGoal=777/;
   s/oneSessionMinDuration=600/oneSessionMinDuration=400/;
